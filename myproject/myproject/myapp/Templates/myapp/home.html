@@ -1,0 +1,73 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    body {
+        background-image: url("{% static 'WebsiteBGI (1).jpg' %}");
+        background-size: 100% 100%;
+        background-attachment: fixed;
+        background-position: center;
+    }
+</style>
+{% endblock %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RAIL INFO HUB</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 10%;
+            background-color: rgba(0, 0, 255, 0.1); /* Adjust background color as needed */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .navbar a {
+            color: rgba(10, 6, 0, 0.587);
+            text-decoration: none;
+            padding: 15px 10px; /* Adjust padding as needed */
+            text-align: center;
+            width: 100%;
+        }
+
+        .navbar a:hover {
+            background-color: rgba(0, 0, 255, 0.3); /* Adjust the hover background color as needed */
+        }
+
+        .container {
+            margin-left: 10%; /* Ensure content doesn't overlap with the navbar */
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a class="navbar-brand" href="#"><b>RAIL INFO HUB</b></a>
+        <a class="nav-item nav-link active" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="{% url 'findbus' %}">Find Train</a>
+        <a class="nav-item nav-link" href="{% url 'seebookings' %}">See Bookings</a>
+        {% if request.user.is_active %}
+        <a class="nav-item nav-link" href="{% url 'signout' %}">Sign out</a>
+        {% else %}
+        <a class="nav-item nav-link" href="{% url 'signup' %}">Sign up</a>
+        {% endif %}
+    </nav>
+
+    <div class="container">
+        <!-- Your main content here -->
+    </div>
+</body>
+</html>

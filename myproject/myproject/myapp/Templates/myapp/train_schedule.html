@@ -1,0 +1,32 @@
+<!-- templates/myapp/train_schedule.html -->
+{% extends 'myapp/base.html' %}
+{% block content %}
+  <h2>Train Schedule</h2>
+  <h3>Train Details</h3>
+  <p>Train Number: {{ train.Train_No }}</p>
+  <p>Train Name: {{ train.Name }}</p>
+  <!-- Add more train details as needed -->
+
+  <h3>Stoppages</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Station Code</th>
+        <th>Station Name</th>
+        <th>Arrival Time</th>
+        <th>Departure Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for stoppage in stoppages %}
+        <tr>
+          <td>{{ stoppage.Station_Code }}</td>
+          <td>{{ stoppage.station.Station_Name }}</td>
+          <td>{{ stoppage.Arrival_Time }}</td>
+          <td>{{ stoppage.Departure_Time }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

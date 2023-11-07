@@ -1,0 +1,10 @@
+{% extends 'myapp/base.html' %}
+{% block content %}
+<h2>List of Trains</h2>
+<ul>
+  {% for train in trains %}
+  <li>Train No: {{ train.Train_No }} - Name: {{ train.Name }}</li>
+  {% endfor %}
+</ul>
+{% endblock %}
+

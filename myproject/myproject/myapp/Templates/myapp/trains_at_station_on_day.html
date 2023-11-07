@@ -1,0 +1,15 @@
+{% extends 'myapp/base.html' %}
+{% block content %}
+<h2>Trains at Station on a Given Day</h2>
+
+{% if trains %}
+    <ul>
+        {% for train in trains %}
+            <li>{{ train.Name }} - Train No: {{ train.Train_No }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No trains found at the station on the specified day.</p>
+{% endif %}
+{{ data }}
+{% endblock %}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Train List</title>
+</head>
+<body>
+    <h1>List of Trains</h1>
+    <ul>
+        {% for key,value in trains.items %}
+            <li>
+                <strong>Train Name:</strong> {{ value.Name }}<br>
+                <strong>Source:</strong> {{ train.source }}<br>
+                <strong>Destination:</strong> {{ train.dest }}<br>
+                <strong>Number of Seats:</strong> {{ train.nos }}<br>
+                <strong>Ticket Price:</strong> {{ train.ticket_price }}<br>
+                <strong>Date:</strong> {{ train.date }}<br>
+                <strong>Time:</strong> {{ train.time }}<br>
+            </li>
+        {% endfor %}
+    </ul>
+    <h2>Find Trains</h2>
+<form action="{% url 'find-trains' %}" method="GET">
+    <!-- Your search form here -->
+
+    {% csrf_token %}
+
+    <button type="submit" class="btn btn-primary">Find Trains</button>
+</form>
+<div class="buttons">
+    <a href="{% url 'trains_at_station_on_day' station_code='STATION_CODE' day='DAY' %}" class="btn btn-primary">Trains at Station on Day</a>
+    <a href="{% url 'trains_with_food' %}" class="btn btn-primary">Trains with Food</a>
+    
+</div>
+</body>{{trains}}
+</html>
+
+

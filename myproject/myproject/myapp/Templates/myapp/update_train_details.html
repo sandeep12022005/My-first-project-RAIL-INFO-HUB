@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Train Details</title>
+</head>
+<body>
+    <h2>Update Train Details</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save Changes</button>
+    </form>
+
+    <a href="{% url 'train_detail' train_id=train.Train_No %}">Back to Train Details</a>
+</body>
+</html>
